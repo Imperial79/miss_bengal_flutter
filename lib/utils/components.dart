@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -409,4 +411,22 @@ class DefaultScaffold extends StatelessWidget {
       ),
     );
   }
+}
+
+ClipRRect kContentBox({required Widget child}) {
+  return ClipRRect(
+    child: BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+      child: Container(
+        width: double.infinity,
+        padding: EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          color: Colors.black.withOpacity(.5),
+          borderRadius: kRadius(10),
+          border: Border.all(color: Colors.cyanAccent),
+        ),
+        child: child,
+      ),
+    ),
+  );
 }
