@@ -16,9 +16,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Miss Bengal',
       theme: ThemeData(
+        scaffoldBackgroundColor: Color(0xff0e344f),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyan),
         useMaterial3: true,
         fontFamily: 'Montserrat',
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blueGrey.shade800,
+          ),
+        ),
       ),
       home: WelcomeUI(),
     );

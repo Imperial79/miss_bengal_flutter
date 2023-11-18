@@ -259,9 +259,12 @@ Widget kTextField(
     children: [
       Text(
         label,
-        style: TextStyle(fontSize: sdp(context, 9)),
+        style: TextStyle(
+          fontSize: sdp(context, 9),
+          color: Colors.white,
+        ),
       ),
-      kHeight(7),
+      kHeight(10),
       Row(
         children: [
           Flexible(
@@ -269,6 +272,8 @@ Widget kTextField(
               controller: controller,
               cursorColor: kPrimaryColorAccent,
               style: TextStyle(
+                color: Colors.white,
+                fontSize: sdp(context, 10),
                 fontWeight: FontWeight.w500,
               ),
               obscureText: obscureText,
@@ -280,21 +285,22 @@ Widget kTextField(
               decoration: InputDecoration(
                 counterText: '',
                 filled: true,
-                fillColor: bgColor,
+                isDense: true,
+                fillColor: Colors.grey.shade900,
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: kRadius(10),
+                  borderRadius: kRadius(0),
                   borderSide: BorderSide(color: kPrimaryColor),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: kRadius(10),
-                  borderSide: BorderSide(color: Colors.grey.shade400),
+                  borderRadius: kRadius(0),
+                  borderSide: BorderSide(color: Colors.grey.shade700),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
-                  borderRadius: kRadius(10),
+                  borderRadius: kRadius(0),
                   borderSide: BorderSide(color: Colors.red.shade400),
                 ),
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                // contentPadding:
+                //     EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                 hintText: hintText,
                 hintStyle: TextStyle(
                   color: Colors.grey.shade400,
@@ -398,6 +404,7 @@ class DefaultScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appBar,
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -413,13 +420,16 @@ class DefaultScaffold extends StatelessWidget {
   }
 }
 
-ClipRRect kContentBox({required Widget child}) {
+ClipRRect kContentBox({
+  required Widget child,
+  EdgeInsetsGeometry? padding = const EdgeInsets.all(15),
+}) {
   return ClipRRect(
     child: BackdropFilter(
       filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.all(15),
+        padding: padding,
         decoration: BoxDecoration(
           color: Colors.black.withOpacity(.5),
           borderRadius: kRadius(10),

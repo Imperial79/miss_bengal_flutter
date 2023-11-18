@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miss_bengal_flutter/Screens/Auth%20Screens/loginUI.dart';
 import 'package:miss_bengal_flutter/Screens/homeUI.dart';
 import 'package:miss_bengal_flutter/utils/components.dart';
 import 'package:miss_bengal_flutter/utils/sdp.dart';
@@ -56,7 +57,7 @@ class _WelcomeUIState extends State<WelcomeUI> {
                       height20,
                       kSubmitButton(
                         onPressed: () {
-                          NavPush(context, HomeUI());
+                          NavPush(context, LoginUI());
                         },
                         child: SizedBox(
                           width: double.infinity,
